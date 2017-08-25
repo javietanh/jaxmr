@@ -109,10 +109,23 @@ Please note performance is highly dependent on system load. The numbers above ar
 * Try setup optimal cpu affinity.
 * Enable fast memory (Large/Huge pages).
 
-## Donations
-* XMR: `48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD`
-* BTC: `1P7ujsXeX7GxQwHNnJsRMgAdNkFZmNVqJT`
+### Combine on Window 10
+* install http://www.msys2.org/
+* open MSYS2 (64bit)
+* run
+pacman -Sy
+pacman -S mingw-w64-x86_64-gcc
+pacman -S make
+pacman -S mingw-w64-x86_64-cmake
+pacman -S mingw-w64-x86_64-pkg-config
+* git clone https://github.com/javietanh/jaxmr/jaxmr.git
+* cd jaxmr
+* mkdir build
+* open MSYS2 (64bit)
+* cd .... to jaxmr/build
+* run
+- cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUV_INCLUDE_DIR="C:\msys64\mingw32\include" -DUV_LIBRARY="C:\msys64\mingw64\lib\libuv.a"
+- make
+* error "" when run then
+* add "C:\msys64\mingw64\bin" to the path of window Environment Variables
 
-## Contacts
-* support@xmrig.com
-* [reddit](https://www.reddit.com/user/XMRig/)
