@@ -1,53 +1,26 @@
-# XMRig
-XMRig is high performance Monero (XMR) CPU miner, with the official full Windows support.
-Originally based on cpuminer-multi with heavy optimizations/rewrites and removing a lot of legacy code, since version 1.0.0 complete rewritten from scratch on C++.
 
-* This is the CPU-mining version, there is also a [NVIDIA GPU version](https://github.com/xmrig/xmrig-nvidia).
+# Visual Studio 2017 community
+Note: install .net framework 4.0 & WindowSDK 7.1 (xmr/jaxmr-lib/winsdk_web.exe)
+- cd jaxmr
+- mkdir build
+- cd build
+- cmake .. -G "Visual Studio 15 2017 Win64" -T v140_xp -DCMAKE_BUILD_TYPE=Release  -DUV_INCLUDE_DIR="xmr\jaxmr-lib\libuv-msvc2017-x64\include" -DUV_LIBRARY="xmr\jaxmr-lib\libuv-msvc2017-x64\lib\libuv.lib"
+ 
+after run cmake, it will generate the visual studio project file on build folder.
+- open xmrig.sln: change from debug to release then build
 
-<img src="http://i.imgur.com/OKZRVDh.png" width="619" >
+--> Done
 
-#### Table of contents
-* [Features](#features)
-* [Download](#download)
-* [Usage](#usage)
-* [Algorithm variations](#algorithm-variations)
-* [Build](https://github.com/xmrig/xmrig/wiki/Build)
-* [Common Issues](#common-issues)
-* [Other information](#other-information)
-* [Donations](#donations)
-* [Contacts](#contacts)
 
-## Features
-* High performance.
-* Official Windows support.
-* Small Windows executable, without dependencies.
-* x86/x64 support.
-* Support for backup (failover) mining server.
-* keepalived support.
-* Command line options compatible with cpuminer.
-* CryptoNight-Lite support for AEON.
-* Smart automatic [CPU configuration](https://github.com/xmrig/xmrig/wiki/Threads).
-* Nicehash support
-* It's open source software.
+# using libuv-gcc-x64
+Note: Install cmake 3.9+
+- cd jaxmr
+- mkdir build
+- cd build
+- cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUV_INCLUDE_DIR="xmr\jaxmr-lib\libuv-gcc-x64\include" -DUV_LIBRARY="xmr\jaxmr-lib\libuv-gcc-x64\lib\libuv.a"
+- make
 
-## Download
-* Binary releases: https://github.com/xmrig/xmrig/releases
-* Git tree: https://github.com/xmrig/xmrig.git
-  * Clone with `git clone https://github.com/xmrig/xmrig.git` :hammer: [Build instructions](https://github.com/xmrig/xmrig/wiki/Build).
-
-## Usage
-### Basic example
-```
-xmrig.exe -o pool.minemonero.pro:5555 -u YOUR_WALLET -p x -k
-```
-
-### Failover
-```
-xmrig.exe -o pool.minemonero.pro:5555 -u YOUR_WALLET1 -p x -k -o pool.supportxmr.com:5555 -u YOUR_WALLET2 -p x -k
-```
-For failover you can add multiple pools, maximum count not limited.
-
-### Options
+# Options
 ```
   -a, --algo=ALGO       cryptonight (default) or cryptonight-lite
   -o, --url=URL         URL of mining server
@@ -76,56 +49,9 @@ For failover you can add multiple pools, maximum count not limited.
   -V, --version         output version information and exit
 ```
 
-Also you can use configuration via config file, default **config.json**. You can load multiple config files and combine it with command line options.
-
 ## Algorithm variations
 Since version 0.8.0.
 * `--av=1` For CPUs with hardware AES.
 * `--av=2` Lower power mode (double hash) of `1`.
 * `--av=3` Software AES implementation.
 * `--av=4` Lower power mode (double hash) of `3`.
-
-## Common Issues
-### HUGE PAGES unavailable
-* Run XMRig as Administrator.
-* Since version 0.8.0 XMRig automatically enable SeLockMemoryPrivilege for current user, but reboot or sign out still required. [Manual instruction](https://msdn.microsoft.com/en-gb/library/ms190730.aspx).
-
-## Other information
-* No HTTP support, only stratum protocol support.
-* No TLS support.
-* Default donation 5% (5 minutes in 100 minutes) can be reduced to 1% via command line option `--donate-level`.
-
-
-### CPU mining performance
-* **Intel i7-7700** - 307 H/s (4 threads)
-* **AMD Ryzen 7 1700X** - 560 H/s (8 threads)
-
-Please note performance is highly dependent on system load. The numbers above are obtained on an idle system. Tasks heavily using a processor cache, such as video playback, can greatly degrade hashrate. Optimal number of threads depends on the size of the L3 cache of a processor, 1 thread requires 2 MB of cache.
-
-### Maximum performance checklist
-* Idle operating system.
-* Do not exceed optimal thread count.
-* Use modern CPUs with AES-NI instructuon set.
-* Try setup optimal cpu affinity.
-* Enable fast memory (Large/Huge pages).
-
-### Combine on Window 10
-* install http://www.msys2.org/
-* open MSYS2 (64bit)
-* run
-pacman -Sy
-pacman -S mingw-w64-x86_64-gcc
-pacman -S make
-pacman -S mingw-w64-x86_64-cmake
-pacman -S mingw-w64-x86_64-pkg-config
-* git clone https://github.com/javietanh/jaxmr/jaxmr.git
-* cd jaxmr
-* mkdir build
-* open MSYS2 (64bit)
-* cd .... to jaxmr/build
-* run
-- cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUV_INCLUDE_DIR="C:\msys64\mingw32\include" -DUV_LIBRARY="C:\msys64\mingw64\lib\libuv.a"
-- make
-* error "libwinpthread-1.dll is missing" when run then
-* add "C:\msys64\mingw64\bin" to the path of window Environment Variables
-
