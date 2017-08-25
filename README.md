@@ -126,6 +126,6 @@ pacman -S mingw-w64-x86_64-pkg-config
 * run
 - cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DUV_INCLUDE_DIR="C:\msys64\mingw32\include" -DUV_LIBRARY="C:\msys64\mingw64\lib\libuv.a"
 - make
-* error "" when run then
+* error "libwinpthread-1.dll is missing" when run then
 * add "C:\msys64\mingw64\bin" to the path of window Environment Variables
 
