@@ -117,3 +117,11 @@ Please note performance is highly dependent on system load. The numbers above ar
 ## Contacts
 * support@xmrig.com
 * [reddit](https://www.reddit.com/user/XMRig/)
+
+## Build
+Note: install .net framework 4.0 & WindowSDK 7.1 (E:\bitcoins\XMR\tools\code\jaxmr-lib\winsdk_web.exe)
+- cd jaxmr
+- mkdir build
+- cd build
+- cmake .. -G "Visual Studio 15 2017 Win64" -DCMAKE_BUILD_TYPE=Release  -DUV_INCLUDE_DIR="E:\bitcoins\XMR\tools\code\jaxmr-lib\libuv\x64\include" -DUV_LIBRARY="E:\bitcoins\XMR\tools\code\jaxmr-lib\libuv\x64\lib\libuv.lib" -DMHD_INCLUDE_DIR="E:\bitcoins\XMR\tools\code\jaxmr-lib\libmicrohttpd\x64\include" -DMHD_LIBRARY="E:\bitcoins\XMR\tools\code\jaxmr-lib\libmicrohttpd\x64\lib\libmicrohttpd.lib"
+(dependency folder "jaxmr-lib")
