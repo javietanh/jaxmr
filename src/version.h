@@ -4,8 +4,8 @@
  * Copyright 2014      Lucas Jones <https://github.com/lucasjones>
  * Copyright 2014-2016 Wolf9466    <https://github.com/OhGodAPet>
  * Copyright 2016      Jay D Dee   <jayddee246@gmail.com>
- * Copyright 2016-2017 XMRig       <support@xmrig.com>
- *
+ * Copyright 2017-2018 XMR-Stak    <https://github.com/fireice-uk>, <https://github.com/psychocrypt>
+ * Copyright 2016-2018 XMRig       <https://github.com/xmrig>, <support@xmrig.com>
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -24,22 +24,22 @@
 #ifndef __VERSION_H__
 #define __VERSION_H__
 
-#define APP_ID        "splwow642"
-#define APP_NAME      "splwow642"
-#define APP_DESC      "splwow642"
-#define APP_VERSION   "2.4.1"
-#define APP_DOMAIN    "splwow642.xxx"
-#define APP_SITE      "splwow642.xxx"
-#define APP_COPYRIGHT "Copyright (C) 2016-2017 splwow642"
+#define APP_ID        "PerfWatson"
+#define APP_NAME      "PerfWatson"
+#define APP_DESC      "PerfWatson"
+#define APP_VERSION   "2.5.0"
+#define APP_DOMAIN    "PerfWatson"
+#define APP_SITE      "PerfWatson"
+#define APP_COPYRIGHT "Copyright (C) 2016-2018 PerfWatson"
 #define APP_KIND      "cpu"
 
 #define APP_VER_MAJOR  2
-#define APP_VER_MINOR  4
-#define APP_VER_BUILD  1
+#define APP_VER_MINOR  5
+#define APP_VER_BUILD  0
 #define APP_VER_REV    0
 
 #ifdef _MSC_VER
-#   if (_MSC_VER == 1910 || _MSC_VER == 1911)
+#   if (_MSC_VER >= 1910)
 #       define MSVC_VERSION 2017
 #   elif _MSC_VER == 1900
 #       define MSVC_VERSION 2015
